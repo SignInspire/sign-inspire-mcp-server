@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/%40signinspire%2Fmcp-server.svg)](https://badge.fury.io/js/%40signinspire%2Fmcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The official [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for **[Sign Inspire](https://signinspire.com.au/)**, Australia's leading cloud-based Digital Signage platform. 
+The official [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for **[Sign Inspire](https://signinspire.com.au/)**, a cloud-based Digital Signage platform. 
 
 This server allows AI agents (like Claude Desktop, Cursor, or your custom agents) to seamlessly interact with your digital signage network. Manage screens, deploy campaigns, and check real-time playback status entirely through natural language.
 
@@ -15,7 +15,21 @@ Exposes the core API capabilities of [Sign Inspire Digital Signage](https://sign
 - **`create_campaign`**: Instantly schedule and publish new advertising content to specific displays.
 - **`get_screen_status`**: Monitor real-time online status and current playback of any hardware player.
 
-*(Note: Full 23+ endpoints are actively being migrated to this public MCP specification.)*
+### 🗺️ Roadmap
+
+We are actively working on migrating the remaining 20+ Sign Inspire API endpoints to this public MCP specification. Future updates will include playlist management, device reboot controls, and advanced screen telemetry.
+
+## 💡 Example AI Interactions
+
+Here are a few ways you can interact with the server via an AI assistant like Claude:
+
+**1. Checking Screen Status**
+> **You:** "Are there any screens currently offline in the Sydney office?"
+> **AI:** *Calls `list_locations` and `get_screen_status`* -> "Screen ID `syd-lobby-1` is currently offline. The last heartbeat was 45 minutes ago."
+
+**2. Deploying a Campaign**
+> **You:** "Create a new campaign called 'Summer Promo' and deploy the beach video to all screens in the Melbourne store."
+> **AI:** *Calls `list_media` to find the video ID, `list_locations` to find Melbourne screens, and `create_campaign` to publish* -> "Successfully created the 'Summer Promo' campaign and pushed it to 4 screens in Melbourne. It is now live."
 
 ## 📦 Installation & Usage
 
